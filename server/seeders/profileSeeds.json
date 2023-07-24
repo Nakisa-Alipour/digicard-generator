@@ -1,0 +1,48 @@
+[
+    {
+      "username": "john_doe",
+      "email": "john.doe@example.com",
+      "password": "password123",
+      "workProfile": [
+        {
+          "fullName": "John Doe",
+          "businessEmail": "john.doe@company.com",
+          "jobTitle": "Software Engineer",
+          "companyName": "Tech Corp",
+          "address": "123 Main St, City",
+          "phoneNumber": "555-123-4567"
+        },
+        {
+          "fullName": "John Doe",
+          "businessEmail": "john.doe@anothercompany.com",
+          "jobTitle": "Web Developer",
+          "companyName": "Web Solutions",
+          "address": "456 Broad St, Town",
+          "phoneNumber": "555-987-6543"
+        }
+      ]
+    },
+    {
+      "username": "jane_smith",
+      "email": "jane.smith@example.com",
+      "password": "pass456",
+      "workProfile": [
+        {
+          "fullName": "Jane Smith",
+          "businessEmail": "jane.smith@company2.com",
+          "jobTitle": "Marketing Specialist",
+          "companyName": "Marketing Co",
+          "address": "789 Market Ave, Village",
+          "phoneNumber": "555-456-7890"
+        }
+      ]
+    },
+    {
+      "username": "user123",
+      "email": "user123@example.com",
+      "password": "userpass789",
+      "workProfile": []
+    }
+  ]
+  
+  
