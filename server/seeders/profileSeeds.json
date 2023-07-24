@@ -36,13 +36,8 @@
           "phoneNumber": "555-456-7890"
         }
       ]
-    },
-    {
-      "username": "user123",
-      "email": "user123@example.com",
-      "password": "userpass789",
-      "workProfile": []
     }
+    
   ]
   
   
