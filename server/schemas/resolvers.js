@@ -1,22 +1,20 @@
 const { AuthenticationError } = require('apollo-server-express');
-//const Profile = require('./models/Profile');
-//const WorkProfile = require('./models/WorkProfile');
-const {Profile, WorkProfile} = require('../models')
+const { Profile, WorkProfile } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    profiles: async () => {
+    Profiles: async () => {
       // Retrieve all user profiles from the database
-      const profiles = await Profile.find();
+      const profiles = await Profile.find().populate('workProfile');
       return profiles;
     },
-    profile: async (parent, { id }) => {
+    Profile: async (parent, { id }) => {
       // Retrieve a user profile by ID from the database
-      const profile = await Profile.findById(id);
+      const profile = await Profile.findOne({ _id: id }).populate('workProfile');
       return profile;
     },
-    workProfile: async (parent, { id }) => {
+    WorkProfile: async (parent, { id }) => {
       // Retrieve a work profile by ID from the database
       const workProfile = await WorkProfile.findById(id);
       return workProfile;
@@ -24,12 +22,11 @@ const resolvers = {
     me: async (parent, args, context) => {
       if (context.user) {
         // Fetch the profile of the authenticated user based on the _id in context.user
-        return Profile.findOne({ _id: context.user._id });
+        return Profile.findOne({ _id: context.user._id }).populate('workProfile');
       }
       // Throw an AuthenticationError if no user is authenticated
       throw new AuthenticationError('You need to be logged in!');
     },
-    
   },
   Mutation: {
     addProfile: async (parent, { username, email, password }) => {
@@ -40,7 +37,7 @@ const resolvers = {
       return { token, profile };
     },
     login: async (parent, { email, password }) => {
-      const profile = await Profile.findOne({ email });
+      const profile = await Profile.findOne({ email }).populate('workProfile');
 
       if (!profile) {
         throw new AuthenticationError('No profile with this email found!');
@@ -55,7 +52,7 @@ const resolvers = {
       const token = signToken(profile);
       return { token, profile };
     },
-    addWorkProfile: async (parent, { profileId, fullName, businessEmail, jobTitle, companyName, address, phoneNumber },context) => {
+    addWorkProfile: async (parent, { profileId, fullName, businessEmail, jobTitle, companyName, address, phoneNumber }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
         const workProfile = await WorkProfile.create({
@@ -67,23 +64,22 @@ const resolvers = {
           phoneNumber,
         });
 
-        const profile = await Profile.findById(profileId);
+        const profile = await Profile.findOne({ _id: profileId });
         profile.workProfile.push(workProfile._id);
 
         // Save the updated profile after adding the new workProfile
         await profile.save();
-
-        return workProfile;
         
+        console.log('Updated Profile with new Work Profile:', profile);
+        return workProfile;
       }
       // If user attempts to execute this mutation and isn't logged in, throw an error
       throw new AuthenticationError('You need to be logged in!');
-      
     },
     updateWorkProfile: async (parent, { id, fullName, businessEmail, jobTitle, companyName, address, phoneNumber }, context) => {
       if (context.user) {
         // Find the work profile by ID
-        const workProfile = await WorkProfile.findById(id);
+        const workProfile = await WorkProfile.findOne({ _id: id });
         if (!workProfile) {
           throw new Error('Work profile not found');
         }
@@ -121,19 +117,22 @@ const resolvers = {
     deleteWorkProfile: async (parent, { id }, context) => {
       if (context.user) {
         // Find the work profile by ID
-        const workProfile = await WorkProfile.findById(id);
+        const workProfile = await WorkProfile.findOne({ _id: id });
         if (!workProfile) {
           throw new Error('Work profile not found');
         }
 
         // Find the associated user profile and remove the workProfile reference
-        const profile = await Profile.findById(workProfile.profileId);
+        /*
+        const profile = await WorkProfile.findById(id);
+        console.log(profile);
         profile.workProfile.pull(workProfile._id);
         await profile.save();
-
+        console.log(profile);
         // Delete the work profile
-        await workProfile.remove();
-
+        */
+        await workProfile.deleteOne();
+        console.log(workProfile);
         return workProfile;
       }
 

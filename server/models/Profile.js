@@ -21,7 +21,7 @@ const profileSchema = new Schema({
   workProfile: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'WorkPortfolio',
+      ref: 'WorkProfile',
     },
   ],
 });
