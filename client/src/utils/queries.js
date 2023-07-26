@@ -42,7 +42,7 @@ export const QUERY_PROFILE = gql`
 
 // Query to get the authenticated user's profile
 export const QUERY_ME = gql`
-  query Me {
+  query me {
     me {
       _id
       username
