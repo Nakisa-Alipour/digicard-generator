@@ -8,7 +8,7 @@ export const ADD_PROFILE = gql`
       profile {
         _id
         username
-        email
+        
       }
     }
   }
@@ -22,12 +22,12 @@ export const LOGIN_USER = gql`
       profile {
         _id
         username
-        email
+        
       }
     }
   }
 `;
-
+/*
 // Mutation to add a new work profile
 export const ADD_WORK_PROFILE = gql`
   mutation addWorkProfile(
@@ -59,6 +59,8 @@ export const ADD_WORK_PROFILE = gql`
   }
 }
 `;
+
+
 
 // Mutation to update an existing work profile
 export const UPDATE_WORK_PROFILE = gql`
@@ -101,4 +103,4 @@ export const DELETE_WORK_PROFILE = gql`
     }
   }
 `;
-
+*/
