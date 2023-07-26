@@ -1,0 +1,41 @@
+.header {
+    background-color: #282c34;
+    padding: 1rem;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-link {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .logo {
+    margin: 0;
+  }
+  
+  .menu {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .menu-link {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .logout-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .logout-btn:focus {
+    outline: none;
+  }
+  
