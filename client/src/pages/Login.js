@@ -1,0 +1,31 @@
+import React from 'react';
+//import { ReactDOM } from 'react-dom';
+import '../styles/Home.css';
+
+const logoSrc =
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png';
+
+
+
+const Login = () => {
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logoSrc} className="App-logo" alt="logo" />
+        <p>
+         <code>This is login</code>!
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Built with React
+        </a>
+      </header>
+    </div>
+  );
+};
+export default Login;
