@@ -13,6 +13,7 @@ const Home = () => {
     <div className="App">
       <header className="App-header">
         <img src={logoSrc} className="App-logo" alt="logo" />
+        <br/>
         <p>
          <code>Welcome to Digicard-Generator</code>!
         </p>

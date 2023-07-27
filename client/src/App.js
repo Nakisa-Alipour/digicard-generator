@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import WorkProfile from './pages/WorkProfile';
 //import './index.css'; // Import global styles if needed
 
 const httpLink = createHttpLink({
@@ -51,6 +52,10 @@ function App() {
           <Route 
                 path="/signup" 
                 element={<Signup />} 
+              />
+          <Route 
+                path="/me" 
+                element={<WorkProfile />} 
               />
           </Routes>
           
