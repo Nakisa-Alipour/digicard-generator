@@ -14,6 +14,7 @@ import Header from './components/Header';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import WorkProfile from './pages/WorkProfile';
+import CardPreview from './pages/CardPreview';
 //import './index.css'; // Import global styles if needed
 
 const httpLink = createHttpLink({
@@ -56,6 +57,10 @@ function App() {
           <Route 
                 path="/me" 
                 element={<WorkProfile />} 
+              />
+          <Route 
+                path="/cardpreview" 
+                element={<CardPreview />} 
               />
           </Routes>
           
