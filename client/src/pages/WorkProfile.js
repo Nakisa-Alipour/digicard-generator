@@ -4,7 +4,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import WorkProfileList from '../components/WorkProfileList';
-//import WorkProfileForm from '../components/WorkProfileForm';
+import WorkProfileForm from '../components/WorkProfileForm';
 
 import { QUERY_PROFILE, QUERY_ME } from '../utils/queries';
 
@@ -56,6 +56,12 @@ const Profile = () => {
       ) : (
         <p>No work profiles found.</p>
       )}
+      
+      <div>
+      <h4>Please fill out the form below to create new work profile</h4>
+      <br/>
+        <WorkProfileForm profileId={profile._id} />
+      </div>
     </div>
   );
 };
@@ -63,13 +69,4 @@ const Profile = () => {
 export default Profile;
 
 
-/*
 
-  
-      
-
-      <div>
-        <WorkProfileForm profileId={profile._id} />
-      </div>
-
-*/
