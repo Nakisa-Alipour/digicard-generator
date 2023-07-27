@@ -27,71 +27,37 @@ export const LOGIN_USER = gql`
     }
   }
 `;
-/*
+
 // Mutation to add a new work profile
 export const ADD_WORK_PROFILE = gql`
-  mutation addWorkProfile(
-    $profileId: ID!
-    $fullName: String!
-    $businessEmail: String!
-    $jobTitle: String!
-    $companyName: String!
-    $address: String!
-    $phoneNumber: String!
-  ) {
-    addWorkProfile(
-      profileId: $profileId
-      fullName: $fullName
-      businessEmail: $businessEmail
-      jobTitle: $jobTitle
-      companyName: $companyName
-      address: $address
-      phoneNumber: $phoneNumber
-    ) {
-      _id
-      fullName
-      businessEmail
-      jobTitle
-      companyName
-      address
-      phoneNumber
+  mutation addWorkProfile($profileId: ID!, $fullName: String!, $businessEmail: String!, $jobTitle: String!, $companyName: String!, $address: String!, $phoneNumber: String!) {
+    addWorkProfile(profileId: $profileId, fullName: $fullName, businessEmail: $businessEmail, jobTitle: $jobTitle, companyName: $companyName, address: $address, phoneNumber: $phoneNumber) {
+        _id
+        fullName
+        businessEmail
+        jobTitle
+        companyName
+        address
+        phoneNumber
     }
   }
-}
 `;
 
 
 
 // Mutation to update an existing work profile
 export const UPDATE_WORK_PROFILE = gql`
-  mutation updateWorkProfile(
-    $id: ID!
-    $fullName: String
-    $businessEmail: String
-    $jobTitle: String
-    $companyName: String
-    $address: String
-    $phoneNumber: String
-  ) {
-    updateWorkProfile(
-      id: $id
-      fullName: $fullName
-      businessEmail: $businessEmail
-      jobTitle: $jobTitle
-      companyName: $companyName
-      address: $address
-      phoneNumber: $phoneNumber
-    ) {
-      _id
-      fullName
-      businessEmail
-      jobTitle
-      companyName
-      address
-      phoneNumber
+  mutation updateWorkProfile($profileId: ID!, $fullName: String!, $businessEmail: String!, $jobTitle: String!, $companyName: String!, $address: String!, $phoneNumber: String!) {
+    updateWorkProfile(profileId: $profileId, fullName: $fullName, businessEmail: $businessEmail, jobTitle: $jobTitle, companyName: $companyName, address: $address, phoneNumber: $phoneNumber) {
+        _id
+        fullName
+        businessEmail
+        jobTitle
+        companyName
+        address
+        phoneNumber
     }
   }
-}
 `;
 
 // Mutation to delete an existing work profile
@@ -103,4 +69,4 @@ export const DELETE_WORK_PROFILE = gql`
     }
   }
 `;
-*/
+

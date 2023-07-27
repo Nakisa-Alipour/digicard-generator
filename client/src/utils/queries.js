@@ -40,6 +40,22 @@ export const QUERY_PROFILE = gql`
   }
 `;
 
+// Query to get a single work profile by ID
+export const QUERY_WORK_PROFILE = gql`
+  query getWorkProfile($id: ID!) {
+    workProfile(id: $id) {
+      _id
+      fullName
+      businessEmail
+      jobTitle
+      companyName
+      address
+      phoneNumber
+    }
+  }
+`;
+
+
 // Query to get the authenticated user's profile
 export const QUERY_ME = gql`
   query me {
@@ -60,17 +76,3 @@ export const QUERY_ME = gql`
   }
 `;
 
-// Query to get a single work profile by ID
-export const QUERY_WORK_PROFILE = gql`
-  query getWorkProfile($id: ID!) {
-    workProfile(id: $id) {
-      _id
-      fullName
-      businessEmail
-      jobTitle
-      companyName
-      address
-      phoneNumber
-    }
-  }
-`;
