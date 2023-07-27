@@ -26,9 +26,9 @@ const typeDefs = gql`
   }
 
   type Query {
-    Profiles: [Profile]
-    Profile(id: ID!): Profile
-    WorkProfile(id: ID!): WorkProfile
+    profiles: [Profile]
+    profile(id: ID!): Profile
+    workProfile(id: ID!): WorkProfile
     me: Profile
   }
 

@@ -4,17 +4,17 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    Profiles: async () => {
+    profiles: async () => {
       // Retrieve all user profiles from the database
       const profiles = await Profile.find().populate('workProfile');
       return profiles;
     },
-    Profile: async (parent, { id }) => {
+    profile: async (parent, { id }) => {
       // Retrieve a user profile by ID from the database
       const profile = await Profile.findOne({ _id: id }).populate('workProfile');
       return profile;
     },
-    WorkProfile: async (parent, { id }) => {
+    workProfile: async (parent, { id }) => {
       // Retrieve a work profile by ID from the database
       const workProfile = await WorkProfile.findById(id);
       return workProfile;

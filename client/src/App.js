@@ -59,7 +59,7 @@ function App() {
                 element={<WorkProfile />} 
               />
           <Route 
-                path="/cardpreview" 
+                path="/cardpreview/:workProfileId" 
                 element={<CardPreview />} 
               />
           </Routes>
