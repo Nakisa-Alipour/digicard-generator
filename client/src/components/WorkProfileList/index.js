@@ -98,6 +98,7 @@ import React from 'react';
 import { useMutation } from '@apollo/client';
 import { DELETE_WORK_PROFILE } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
+import '../../styles/WorkProfileList.css'; // Import the CSS file
 
 const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
   const [deleteWorkProfile, { error }] = useMutation(DELETE_WORK_PROFILE, {
@@ -128,17 +129,16 @@ const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
   }
 
   return (
-    <div>
+    <div className="work-profile-list-container">
       {isLoggedInUser && <h4>Work Profiles:</h4>}
-      <ul>
+      <ul className="work-profile-list">
         {workProfile.map((profile) => (
-          <li key={profile._id}>
-            <span>Full Name: {profile.fullName}</span>
-            <br/>
-            <span>Job Title: {profile.jobTitle}</span>
+          <li key={profile._id} className="work-profile-item">
+            
+            <span className="work-profile-label">Job Title:</span> {profile.jobTitle}
             {isLoggedInUser && (
-              <button onClick={() => handleDeleteWorkProfile(profile._id)}>
-                X
+              <button className="delete-button" onClick={() => handleDeleteWorkProfile(profile._id)}>
+                Delete
               </button>
             )}
           </li>
@@ -150,3 +150,4 @@ const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
 };
 
 export default WorkProfileList;
+
