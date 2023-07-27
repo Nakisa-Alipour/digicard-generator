@@ -51,25 +51,28 @@ const Signup = () => {
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
+                <label htmlFor="username">Username:</label>
                 <input
                   className="signup-input" 
-                  placeholder="Your username"
+                  placeholder=" "
                   name="username"
                   type="text"
                   value={formState.username}
                   onChange={handleChange}
                 />
+                <label htmlFor="email">Email:</label>
                 <input
                   className="signup-input" 
-                  placeholder="Your email"
+                  placeholder=" "
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
+                <label htmlFor="password">Password:</label>
                 <input
                   className="signup-input" 
-                  placeholder="Your password"
+                  placeholder=" "
                   name="password"
                   type="password"
                   value={formState.password}
