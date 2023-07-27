@@ -7,7 +7,7 @@ import '../../styles/WorkProfileForm.css'; // Import the CSS file
 
 import Auth from '../../utils/auth';
 
-const AddWorkProfileForm = ({ profileId, refetchQuery }) => {
+const AddWorkProfileForm = ({ profileId }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     businessEmail: '',
@@ -39,9 +39,6 @@ const AddWorkProfileForm = ({ profileId, refetchQuery }) => {
         address: '',
         phoneNumber: '',
       });
-
-      // Refetch the query to update the WorkProfileList component with the new data
-      refetchQuery();
     } catch (err) {
       console.error(err);
     }
@@ -132,7 +129,7 @@ const AddWorkProfileForm = ({ profileId, refetchQuery }) => {
           </div>
 
           <div className="form-group">
-            <button type="submit">Submit and Review</button>
+            <button type="submit">Add New Work Profile</button>
           </div>
 
           {error && <div className="error-message">{error.message}</div>}
