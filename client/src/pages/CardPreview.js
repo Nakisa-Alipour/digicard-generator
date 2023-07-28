@@ -38,4 +38,39 @@ const CardPreview = () => {
   };
   
   export default CardPreview;
+
+  /*
+return (
+      <div>
+        <Link to="/me">Back to Work Profile</Link>
+        <div className="container">
+          <div className="card">
+            <div className="front side">
+              <h1 className="logo">{workProfile.fullName}</h1>
+            </div>
+
+            <div className="back side">
+              <h3 className="name">{workProfile.fullName}</h3>
+              <div>{workProfile.jobTitle}</div>
+              <div className="info">
+                <p>
+                  <span className="property">Email: </span>{workProfile.businessEmail}
+                </p>
+                <p>
+                  <span className="property">Company Name: </span>{workProfile.companyName}
+                </p>
+                <p>
+                  <span className="property">Address: </span>{workProfile.address}
+                </p>
+                <p>
+                  <span className="property">Phone Number: </span>{workProfile.phoneNumber}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+
+  */
   
