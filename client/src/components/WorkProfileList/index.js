@@ -98,6 +98,7 @@ import React from 'react';
 import { useMutation } from '@apollo/client';
 import { DELETE_WORK_PROFILE } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
+import { Link } from 'react-router-dom';
 import '../../styles/WorkProfileList.css'; // Import the CSS file
 
 const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
@@ -136,6 +137,7 @@ const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
           <li key={profile._id} className="work-profile-item">
             
             <span className="work-profile-label">Job Title:</span> {profile.jobTitle}
+            <Link to={`/cardpreview/${profile._id}`}>Card Preview</Link>
             {isLoggedInUser && (
               <button className="delete-button" onClick={() => handleDeleteWorkProfile(profile._id)}>
                 Delete

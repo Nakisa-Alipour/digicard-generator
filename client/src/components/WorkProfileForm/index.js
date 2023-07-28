@@ -193,7 +193,7 @@ const AddWorkProfileForm = ({ profileId }) => {
       });
 
       // Redirect to the CardPreview page after form submission
-      window.location.href = `./cardpreview/${data.addWorkProfile._id}`; // Replace with the correct URL for CardPreview
+      window.location.href = `./cardpreview/${data.addWorkProfile._id}`; 
     } catch (err) {
       console.error(err);
     }
