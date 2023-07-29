@@ -80,7 +80,7 @@ const Signup = () => {
                 />
                 <button
                   className="signup-button" 
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: 'pointer', fontWeight: 'bold', color: '#555' }}
                   type="submit"
                 >
                   Submit

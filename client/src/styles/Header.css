@@ -4,38 +4,52 @@
   }
   
   .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px 20px;
+  background-color: #282c34;
+  color: #fff;
+}
   .logo-link {
     text-decoration: none;
     color: white;
   }
   
   .logo {
-    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
   }
   
   .menu {
     display: flex;
-    gap: 1rem;
+    align-items: center;
   }
   
   .menu-link {
     text-decoration: none;
-    color: white;
+    color: #61dafb;
+    font-weight: bolder;
+    margin-right: 40px;
+    font-size: larger;
   }
   
   .logout-btn {
-    background-color: transparent;
+    background-color: #4d32e6;
+    color: #fff;
     border: none;
-    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+    
   }
   
   .logout-btn:focus {
     outline: none;
+  }
+
+  .logout-btn:hover {
+    background-color: #c0392b;
   }
   
