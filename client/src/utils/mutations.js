@@ -47,17 +47,17 @@ export const ADD_WORK_PROFILE = gql`
 
 // Mutation to update an existing work profile
 export const UPDATE_WORK_PROFILE = gql`
-  mutation updateWorkProfile($profileId: ID!, $fullName: String!, $businessEmail: String!, $jobTitle: String!, $companyName: String!, $address: String!, $phoneNumber: String!) {
-    updateWorkProfile(profileId: $profileId, fullName: $fullName, businessEmail: $businessEmail, jobTitle: $jobTitle, companyName: $companyName, address: $address, phoneNumber: $phoneNumber) {
-        _id
-        fullName
-        businessEmail
-        jobTitle
-        companyName
-        address
-        phoneNumber
-    }
+mutation UpdateWorkProfile($updateWorkProfileId: ID!, $fullName: String!, $businessEmail: String!, $jobTitle: String!, $companyName: String!, $address: String!, $phoneNumber: String!) {
+  updateWorkProfile(id: $updateWorkProfileId, fullName: $fullName, businessEmail: $businessEmail, jobTitle: $jobTitle, companyName: $companyName, address: $address, phoneNumber: $phoneNumber) {
+    _id
+    fullName
+    businessEmail
+    jobTitle
+    companyName
+    address
+    phoneNumber
   }
+}
 `;
 
 // Mutation to delete an existing work profile

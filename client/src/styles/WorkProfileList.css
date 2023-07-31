@@ -61,6 +61,21 @@
   font-weight: bolder;
 }
 
+.update-button {
+  background-color: #4d32e6;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.update-button:hover {
+  background-color: #61dafb;
+  font-weight: bolder;
+}
+
 
 .card-preview-link {
   color: #3498db ;

@@ -102,6 +102,7 @@ import { Link } from 'react-router-dom';
 import '../../styles/WorkProfileList.css'; // Import the CSS file
 
 const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
+  
   const [deleteWorkProfile, { error }] = useMutation(DELETE_WORK_PROFILE, {
     update(cache, { data: { deleteWorkProfile } }) {
       try {
@@ -125,6 +126,7 @@ const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
     }
   };
 
+  
   if (!workProfile.length) {
     return <h3>No Work Profile Yet</h3>;
   }
@@ -142,12 +144,20 @@ const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
               <Link to={`/cardpreview/${profile._id}`}>Card Preview</Link>
             </div>
             <div className="card1">
-            </div>
+            
               {isLoggedInUser && (
                 <button className="delete-button" onClick={() => handleDeleteWorkProfile(profile._id)}>
                   Delete
                 </button>
               )}
+            </div>
+            <div>
+            {isLoggedInUser && (
+                <Link className="update-button" to={`/updatework/${profile._id}`}>
+                  Update
+                </Link>
+              )}
+            </div>
           </li>
         ))}
       </ul>
