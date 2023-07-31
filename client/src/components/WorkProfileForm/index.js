@@ -284,7 +284,7 @@ const AddWorkProfileForm = ({ profileId }) => {
           </div>
 
           <div className="form-group">
-            <button type="submit">Add New Work Profile</button>
+            <button className="submit-button" type="submit">Add New Work Profile</button>
           </div>
           {error && <div className="error-message">{error.message}</div>}
         </form>

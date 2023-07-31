@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: -webkit-linear-gradient(to right, #081947, #074257, #cce7eb);
 }
 
 .work-profile-list-container {
@@ -30,6 +31,10 @@
   background-color: #fff;
 }
 
+.card {
+  flex: 33%;
+}
+
 .work-profile-label {
   font-weight: bold;
   color: #333;
@@ -38,7 +43,7 @@
 
 .work-profile-info {
   display: flex;
-  flex-direction: column;
+  flex: 1;
 }
 
 .delete-button {
@@ -52,20 +57,21 @@
 }
 
 .delete-button:hover {
-  background-color: #c0392b;
+  background-color: #61dafb;
+  font-weight: bolder;
 }
 
 
 .card-preview-link {
-  background-color: #3498db;
-  color: #fff ;
+  color: #3498db ;
   padding: 8px 16px;
   border-radius: 5px;
   text-decoration: none;
-  margin-right: 10px;
+  margin-left: 10px;
   transition: background-color 0.3s;
 }
 
 .card-preview-link:hover {
-  background-color: #2980b9;
+  background-color: #61dafb;
+  font-weight: bolder;
 }

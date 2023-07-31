@@ -132,17 +132,23 @@ const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
   return (
     <div className="work-profile-list-container">
       {isLoggedInUser && <h4>Work Profiles:</h4>}
+      <br/>
       <ul className="work-profile-list">
         {workProfile.map((profile) => (
           <li key={profile._id} className="work-profile-item">
-            
-            <span className="work-profile-label">Job Title:</span> {profile.jobTitle}
-            <Link to={`/cardpreview/${profile._id}`}>Card Preview</Link>
-            {isLoggedInUser && (
-              <button className="delete-button" onClick={() => handleDeleteWorkProfile(profile._id)}>
-                Delete
-              </button>
-            )}
+            <div className="card">
+              <span className="work-profile-label">Job Title:</span> {profile.jobTitle}
+            </div>
+            <div className="card card-preview-link">
+              <Link to={`/cardpreview/${profile._id}`}>Card Preview</Link>
+            </div>
+            <div className="card">
+            </div>
+              {isLoggedInUser && (
+                <button className="delete-button" onClick={() => handleDeleteWorkProfile(profile._id)}>
+                  Delete
+                </button>
+              )}
           </li>
         ))}
       </ul>
