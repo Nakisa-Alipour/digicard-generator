@@ -27,21 +27,37 @@
   }
   
   .menu-link {
-    text-decoration: none;
-    color: #61dafb;
+   
     font-weight: bolder;
     margin-right: 40px;
     font-size: larger;
+    
+    outline: 1px solid #19F6E8;
+    color:#19F6E8;
+    display: inline-block;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 20px;
+    letter-spacing: 5px;
   }
+
+  .menu-link:hover {
+    background-color: #4d32e6;
+  }
+  
   
   .logout-btn {
     background-color: #4d32e6;
     color: #fff;
     border: none;
-    padding: 8px 16px;
+    padding: 10px 30px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    line-height: 20px;
     
   }
   
@@ -52,4 +68,14 @@
   .logout-btn:hover {
     background-color: #c0392b;
   }
+
+  /*
+.menu-link {
+    text-decoration: none;
+    color: #61dafb;
+    font-weight: bolder;
+    margin-right: 40px;
+    font-size: larger;
+  }
+  */
   

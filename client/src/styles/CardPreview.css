@@ -60,17 +60,7 @@ body {
   text-align: center;
 }
 
-.logo {
-  outline: 1px solid #19F6E8;
-  display: inline-block;
-  padding: 15px 40px;
-  text-transform: uppercase;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.4em;
-  font-weight: normal;
-  line-height: 32px;
-  letter-spacing: 8px;
-}
+
 
 /* Back styling */
 .back {
@@ -98,6 +88,30 @@ p {
   color: #fff;
 }
 
+.middle-container {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  height: 10vh; /* Set the height to the full viewport height */
+}
+
+.back-link {
+  outline: 1px solid #19F6E8;
+  color:#19F6E8;
+  display: inline-block;
+  padding: 15px 40px;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  font-weight: normal;
+  line-height: 32px;
+  letter-spacing: 8px;
+}
+
+.back-link:hover {
+  background-color: #4d32e6;
+}
+
 /* Make semi-responsive */
 @media (max-width: 700px) {
   .card {
@@ -107,3 +121,18 @@ p {
     transform: scale(0.5) rotateY(-180deg) translateZ(1px);
   }
 }
+
+/* 
+.logo {
+  outline: 1px solid #19F6E8;
+  display: inline-block;
+  padding: 15px 40px;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4em;
+  font-weight: normal;
+  line-height: 32px;
+  letter-spacing: 8px;
+}
+
+*/
