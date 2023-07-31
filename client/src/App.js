@@ -109,4 +109,5 @@ Routes, Route
           <Footer />
 
   NOTE: npm install jwt-decode
+  NOTE: npm install qrcode
 */

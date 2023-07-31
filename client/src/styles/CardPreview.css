@@ -71,6 +71,7 @@ body {
 .name {
   color: #3B3B3B;
   margin-bottom: 0;
+  font-weight: bold;
 }
 
 p {
@@ -86,6 +87,12 @@ p {
 
 .property {
   color: #fff;
+}
+
+#qrcode {
+  width: 150px; /* Adjust the width as needed */
+  height: 150px; /* Adjust the height as needed */
+  margin-right: 50px; /* Push the QR code to the right */
 }
 
 .middle-container {
