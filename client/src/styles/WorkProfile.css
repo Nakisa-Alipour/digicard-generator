@@ -1,0 +1,13 @@
+:root {
+    --padding: 30px;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #757575;
+    overflow-x: hidden;
+    margin: 0;
+  }

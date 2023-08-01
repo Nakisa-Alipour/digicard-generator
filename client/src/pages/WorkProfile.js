@@ -9,7 +9,7 @@ import WorkProfileForm from '../components/WorkProfileForm';
 import { QUERY_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
-//import '../styles/WorkProfile.css'
+import '../styles/WorkProfile.css'
 
 const Profile = () => {
   const { profileId } = useParams();
@@ -48,7 +48,8 @@ const Profile = () => {
 
   return (
     <main style={{ background: 'linear-gradient(to bottom, #081947, #074257, #cce7eb)' }}>
-      <h2 style={{color: 'white'}}>Welcome to your work profile!</h2>
+      <h2 style={{paddingTop: "10px",color: 'white'}}>Welcome to your work profile!</h2>
+      <br/>
       {workProfileArray.length > 0 ? (
         <WorkProfileList
           workProfile={workProfileArray}
@@ -59,7 +60,7 @@ const Profile = () => {
       )}
       
       <div>
-      <h4 style={{color: 'white'}}>Please fill out the form below to create new work profile</h4>
+      <h2 style={{margin: "0 auto", color: 'white'}}> Create new work profile</h2>
       <br/>
         <WorkProfileForm profileId={profile._id} />
       </div>

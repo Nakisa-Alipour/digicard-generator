@@ -134,14 +134,15 @@ const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
   return (
     <div className="work-profile-list-container">
       {isLoggedInUser && <h4>Work Profiles:</h4>}
+      <br/>
       <ul className="work-profile-list">
         {workProfile.map((profile) => (
           <li key={profile._id} className="work-profile-item">
             <div className="card1">
               <span className="work-profile-label">Job Title:</span> {profile.jobTitle}
             </div>
-            <div className="card1 card-preview-link">
-              <Link to={`/cardpreview/${profile._id}`}>Card Preview</Link>
+            <div className="card2 card-link">
+              <Link className="card-link" to={`/cardpreview/${profile._id}`}>Card Preview</Link>
             </div>
             <div className="card1">
             

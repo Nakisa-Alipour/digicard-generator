@@ -27,6 +27,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
+
 .card {
   /* Styling */
   width: 700px;
@@ -117,6 +118,19 @@ p {
 
 .back-link:hover {
   background-color: #4d32e6;
+}
+
+.container.paused .card,
+.card.paused {
+  transition: none !important;
+  transform: rotateY(0deg) translateZ(1px);
+}
+
+.container.paused .front,
+.container.paused .back,
+.card.paused .front,
+.card.paused .back {
+  pointer-events: none;
 }
 
 /* Make semi-responsive */

@@ -78,6 +78,7 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                <br/>
                 <button
                   className="signup-button" 
                   style={{ cursor: 'pointer', fontWeight: 'bold', color: '#555' }}

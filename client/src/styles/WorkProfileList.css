@@ -35,6 +35,10 @@
   flex: 33%;
 }
 
+.card2 {
+  padding: 200px;
+}
+
 .work-profile-label {
   font-weight: bold;
   color: #333;
@@ -47,6 +51,7 @@
 }
 
 .delete-button {
+  padding-right: 30px;
   background-color: #4d32e6;
   color: #fff;
   border: none;
@@ -69,6 +74,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-decoration: none;
 }
 
 .update-button:hover {
@@ -77,16 +83,43 @@
 }
 
 
-.card-preview-link {
-  color: #3498db ;
-  padding: 8px 16px;
-  border-radius: 5px;
+.card-link {
+  display: block;
+  padding: 15px;
   text-decoration: none;
-  margin-left: 10px;
-  transition: background-color 0.3s;
+  color: #aaa;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 10px;
 }
 
-.card-preview-link:hover {
-  background-color: #61dafb;
-  font-weight: bolder;
+.card-link,
+.card-link:after,
+.card-link:before {
+  transition: all .5s;
 }
+.card-link:hover {
+  color: #4d32e6;
+}
+
+.card-link {
+  position: relative;
+}
+
+.card-link:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+
+.card-link:hover:after {
+  width: 50%;
+}
+

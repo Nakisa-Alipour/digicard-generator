@@ -84,9 +84,9 @@ const UpdateWork = () => {
       {isUpdateSuccessful ? (
         <div className="update-success-message">
           <h2>Work Profile Updated Successfully!</h2>
-          <p>
+          <h4 className='updated-card'>
             Click <a href={`/cardpreview/${workProfileId}`}>here</a> to view the updated work profile.
-          </p>
+          </h4>
         </div>
       ) : (
         <div className="update-form">

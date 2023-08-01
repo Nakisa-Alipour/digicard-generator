@@ -137,4 +137,5 @@ Routes, Route
 
   NOTE: npm install jwt-decode
   NOTE: npm install qrcode
+  NOTE: npm install html2canvas
 */

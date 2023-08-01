@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_WORK_PROFILE } from '../utils/queries';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import '../styles/CardPreview.css';
 import QRCode from 'qrcode';
+
 
 const CardPreview = () => {
   const { workProfileId } = useParams();
@@ -14,6 +15,7 @@ const CardPreview = () => {
   });
 
   const qrContainerRef = useRef(null);
+  const backSideRef = useRef(null);
 
   useEffect(() => {
     if (data && data.workProfile) {
@@ -26,6 +28,27 @@ const CardPreview = () => {
       if (error) console.error(error);
       console.log('QR code generated!');
     });
+  };
+
+
+  const downloadQRCode = () => {
+    // Get the canvas element for the QR code
+    const qrCanvas = qrContainerRef.current;
+  
+    // Convert the QR code canvas to a data URL
+    const dataURL = qrCanvas.toDataURL('image/png');
+  
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = dataURL;
+    link.download = 'qr_code.png'; // Set the desired file name here
+  
+    // Append the link to the DOM and trigger the download
+    document.body.appendChild(link);
+    link.click();
+  
+    // Clean up
+    document.body.removeChild(link);
   };
 
   if (loading) {
@@ -43,7 +66,7 @@ const CardPreview = () => {
             <h1 className="logo">{workProfile.fullName}</h1>
           </div>
 
-          <div className="back side">
+          <div className="back side" ref={backSideRef}>
             <h3 className="name">{workProfile.fullName}</h3>
             <br/>
             <div>{workProfile.jobTitle}</div>
@@ -63,6 +86,121 @@ const CardPreview = () => {
               <div className="qr-container">
                 <canvas ref={qrContainerRef} id="qrcode" />
               </div>
+
+              <button onClick={downloadQRCode}>Download QR code</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CardPreview;
+
+/* 
+import React, { useEffect, useRef, useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { QUERY_WORK_PROFILE } from '../utils/queries';
+import { useParams } from 'react-router-dom';
+import '../styles/CardPreview.css';
+import QRCode from 'qrcode';
+
+
+const CardPreview = () => {
+  const { workProfileId } = useParams();
+  const { loading, data } = useQuery(QUERY_WORK_PROFILE, {
+    variables: {
+      id: workProfileId
+    }
+  });
+
+  const [isFlipped, setIsFlipped] = useState(false);
+  const qrContainerRef = useRef(null);
+  const backSideRef = useRef(null);
+
+  const handleStopFlipping = () => {
+    setIsFlipped(true);
+  };
+
+  const handleStartFlipping = () => {
+    setIsFlipped(false);
+  };
+
+  useEffect(() => {
+    if (data && data.workProfile) {
+      generateQRCode(data.workProfile._id);
+    }
+  }, [data]);
+
+  const generateQRCode = (text) => {
+    QRCode.toCanvas(qrContainerRef.current, text, function (error) {
+      if (error) console.error(error);
+      console.log('QR code generated!');
+    });
+  };
+
+
+  const downloadQRCode = () => {
+    // Get the canvas element for the QR code
+    const qrCanvas = qrContainerRef.current;
+  
+    // Convert the QR code canvas to a data URL
+    const dataURL = qrCanvas.toDataURL('image/png');
+  
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = dataURL;
+    link.download = 'qr_code.png'; // Set the desired file name here
+  
+    // Append the link to the DOM and trigger the download
+    document.body.appendChild(link);
+    link.click();
+  
+    // Clean up
+    document.body.removeChild(link);
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  console.log(data);
+  const { workProfile } = data;
+
+  return (
+    <div>
+      <div className={`container ${isFlipped ? 'flipped' : ''}`}>
+        <div className={`card ${isFlipped ? 'flipped' : ''}`}>
+          <div className= "front side">
+            <h1 className="logo">{workProfile.fullName}</h1>
+          </div>
+
+          <div className="back side" ref={backSideRef}>
+            <button onClick={handleStopFlipping}>Stop Flipping</button>
+            <button onClick={handleStartFlipping}>Start Flipping</button>
+            <h3 className="name">{workProfile.fullName}</h3>
+            <br/>
+            <div>{workProfile.jobTitle}</div>
+            <div className="info">
+              <p>
+                <span className="property">Email: </span>{workProfile.businessEmail}
+              </p>
+              <p>
+                <span className="property">Company Name: </span>{workProfile.companyName}
+              </p>
+              <p>
+                <span className="property">Address: </span>{workProfile.address}
+              </p>
+              <p>
+                <span className="property">Phone Number: </span>{workProfile.phoneNumber}
+              </p>
+              <div className="qr-container">
+                <canvas ref={qrContainerRef} id="qrcode" />
+              </div>
+
+              <button onClick={downloadQRCode}>Download QR code</button>
               
             </div>
           </div>
@@ -76,33 +214,4 @@ export default CardPreview;
 
 
 
-
-
-   /*
-    return (
-      <div>
-        <h2>Card Preview</h2>
-        <div>
-          <h3>Full Name: {workProfile.fullName}</h3>
-          <p>Business Email: {workProfile.businessEmail}</p>
-          <p>Job Title: {workProfile.jobTitle}</p>
-          <p>Company Name: {workProfile.companyName}</p>
-          <p>Address: {workProfile.address}</p>
-          <p>Phone Number: {workProfile.phoneNumber}</p>
-        </div>
-  
-        <Link to="/me">Back to Work Profile</Link>
-      </div>
-    );
-  };
-  
-  export default CardPreview;
-
- */
-
-  /*
-  <div className="middle-container">
-        <Link to="/me" className="back-link">Back to Work Profile</Link>
-      </div>
-
-  */
+*/

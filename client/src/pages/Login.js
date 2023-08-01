@@ -72,9 +72,10 @@ const Login = (props) => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                <br/>
                 <button
                   className="form-button submit-button"
-                  style={{ cursor: 'pointer', fontWeight: 'bold', color: '#555'}}
+                  style={{ cursor: 'pointer', fontWeight: 'bold', color: 'black', background: 'white'}}
                   type="submit"
                 >
                   Submit
