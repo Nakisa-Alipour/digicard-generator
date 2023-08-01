@@ -59,7 +59,7 @@ const Profile = () => {
         <p>No work profiles found.</p>
       )}
       
-      <div>
+      <div className='work-form'>
       <h2 style={{margin: "0 auto", color: 'white'}}> Create new work profile</h2>
       <br/>
         <WorkProfileForm profileId={profile._id} />

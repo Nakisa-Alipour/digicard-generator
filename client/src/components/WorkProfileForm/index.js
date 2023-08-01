@@ -289,7 +289,7 @@ const AddWorkProfileForm = ({ profileId }) => {
           {error && <div className="error-message">{error.message}</div>}
         </form>
       ) : (
-        <p>
+        <p className='text'>
           You need to be logged in to add a work profile. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
