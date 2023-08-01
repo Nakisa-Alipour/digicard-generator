@@ -48,12 +48,6 @@ body {
   transform: rotate(0deg) translateZ(1px);
 }
 
-/* Flip the card on hover */
-.container:hover .card,
-.back {
-  transform: rotateY(-180deg) translateZ(1px);
-}
-
 /* Front styling */
 .front {
   /* Center the name + outline (almost) */
@@ -120,17 +114,17 @@ p {
   background-color: #4d32e6;
 }
 
-.container.paused .card,
-.card.paused {
-  transition: none !important;
-  transform: rotateY(0deg) translateZ(1px);
+.card-for-buttons {
+  display: flex;
+  
+  
 }
 
-.container.paused .front,
-.container.paused .back,
-.card.paused .front,
-.card.paused .back {
-  pointer-events: none;
+.card-for-buttons2 {
+  flex: 33%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Make semi-responsive */

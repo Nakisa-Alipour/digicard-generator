@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_WORK_PROFILE } from '../utils/queries';
@@ -99,7 +100,7 @@ const CardPreview = () => {
 
 export default CardPreview;
 
-/* 
+/*
 import React, { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_WORK_PROFILE } from '../utils/queries';
@@ -122,12 +123,16 @@ const CardPreview = () => {
 
   const handleStopFlipping = () => {
     setIsFlipped(true);
+    document.querySelector('.container').classList.add('stopped-flipping');
+    document.querySelector('.card').classList.add('stopped-flipping');
   };
 
   const handleStartFlipping = () => {
     setIsFlipped(false);
+    document.querySelector('.container').classList.remove('stopped-flipping');
+    document.querySelector('.card').classList.remove('stopped-flipping');
   };
-
+  
   useEffect(() => {
     if (data && data.workProfile) {
       generateQRCode(data.workProfile._id);
@@ -178,8 +183,9 @@ const CardPreview = () => {
           </div>
 
           <div className="back side" ref={backSideRef}>
-            <button onClick={handleStopFlipping}>Stop Flipping</button>
-            <button onClick={handleStartFlipping}>Start Flipping</button>
+
+            
+            
             <h3 className="name">{workProfile.fullName}</h3>
             <br/>
             <div>{workProfile.jobTitle}</div>
@@ -200,7 +206,12 @@ const CardPreview = () => {
                 <canvas ref={qrContainerRef} id="qrcode" />
               </div>
 
-              <button onClick={downloadQRCode}>Download QR code</button>
+              <div className="card-for-buttons">
+              <button  className="card-for-buttons2" onClick={downloadQRCode}>Download QR code</button>
+              <button className="card-for-buttons2" onClick={handleStopFlipping}>Stop Flipping</button>
+              <button className="card-for-buttons2" onClick={handleStartFlipping}>Start Flipping</button>
+              </div>
+              
               
             </div>
           </div>
@@ -212,6 +223,6 @@ const CardPreview = () => {
 
 export default CardPreview;
 
-
-
 */
+
+
