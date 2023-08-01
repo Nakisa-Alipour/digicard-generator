@@ -141,8 +141,11 @@ const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
             <div className="card1">
               <span className="work-profile-label">Job Title:</span> {profile.jobTitle}
             </div>
-            <div className="card2 card-link">
-              <Link className="card-link" to={`/cardpreview/${profile._id}`}>Card Preview</Link>
+            <div className="card1 card-link">
+              <Link className="card-link" to={`/cardpreview/${profile._id}`}>Business Card Preview</Link>
+            </div>
+            <div className="card1 card-link">
+              <Link className="card-link" to={`/download/${profile._id}`}>Card Preview & Download</Link>
             </div>
             <div className="card1">
             

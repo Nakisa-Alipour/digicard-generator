@@ -1,0 +1,110 @@
+/* Updated CSS */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300');
+
+:root {
+  --padding: 30px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #757575;
+}
+
+.d-card-container {
+  perspective: 800px;
+  /* Styling */
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  /* Center it */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.d-card1 {
+  /* Styling */
+  width: 700px;
+  height: 400px;
+  background: #15CCC0;
+  padding: var(--padding);
+}
+
+.d-name {
+  color: black;
+  margin-bottom: 0;
+  font-weight: bolder;
+  font-size: 28px;
+}
+
+p {
+  margin: 0.8em 0;
+}
+
+.d-qr-code-container {
+    display: flex;
+    justify-content: flex-end; /* Equal space between items */
+    align-items: center; /* Vertically center the items */
+}
+
+
+.d-card3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+ 
+}
+.d-button {
+    background-color: #4d32e6;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.d-button-area {
+    outline: 1px solid #19F6E8;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1 em;
+    font-weight: normal;
+    line-height: 20px;
+    color:#19F6E8;
+    margin-top: 10px;
+  }
+
+.d-info {
+    position: absolute;
+    bottom: var(--padding);
+    left: var(--padding);
+    color: black;
+}
+
+.d-property {
+  color: #fff;
+  font-weight: bold;
+}
+
+#d-qrcode {
+  width: 150px; /* Adjust the width as needed */
+  height: 150px; /* Adjust the height as needed */
+  margin-left: 500px; /* Push the QR code to the right */
+}
+
+/* Make semi-responsive */
+@media (max-width: 700px) {
+  .card11 {
+    transform: scale(0.5);
+  }
+  .card-container:hover .card {
+    transform: scale(0.5);
+  }
+}

@@ -1,0 +1,128 @@
+import React, { useEffect, useRef } from 'react';
+import { useQuery } from '@apollo/client';
+import { QUERY_WORK_PROFILE } from '../utils/queries';
+import { useParams } from 'react-router-dom';
+import '../styles/Download.css';
+import QRCode from 'qrcode';
+import html2canvas from 'html2canvas';
+
+const Download = () => {
+  const { workProfileId } = useParams();
+  const { loading, data } = useQuery(QUERY_WORK_PROFILE, {
+    variables: {
+      id: workProfileId
+    }
+  });
+
+  const qrContainerRef = useRef(null);
+  const cardContainerRef = useRef(null);
+
+  useEffect(() => {
+    if (data && data.workProfile) {
+      generateQRCode(data.workProfile._id);
+    }
+  }, [data]);
+
+  const generateQRCode = (text) => {
+    QRCode.toCanvas(qrContainerRef.current, text, function (error) {
+      if (error) console.error(error);
+      console.log('QR code generated!');
+    });
+  };
+
+  const downloadQRCode = () => {
+    // Get the canvas element for the QR code
+    const qrCanvas = qrContainerRef.current;
+
+    // Convert the QR code canvas to a data URL
+    const dataURL = qrCanvas.toDataURL('image/png');
+
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = dataURL;
+    link.download = 'qr_code.png'; // Set the desired file name here
+
+    // Append the link to the DOM and trigger the download
+    document.body.appendChild(link);
+    link.click();
+
+    // Clean up
+    document.body.removeChild(link);
+  };
+
+  const downloadCard = () => {
+    // Get the card container element
+    const cardContainer = cardContainerRef.current;
+
+    // Create a temporary canvas element
+    html2canvas(cardContainer).then((canvas) => {
+      // Convert the canvas to a data URL
+      const dataURL = canvas.toDataURL('image/png');
+
+      // Create a temporary link element
+      const link = document.createElement('a');
+      link.href = dataURL;
+      link.download = 'card.png'; // Set the desired file name here
+
+      // Append the link to the DOM and trigger the download
+      document.body.appendChild(link);
+      link.click();
+
+      // Clean up
+      document.body.removeChild(link);
+    });
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  console.log(data);
+  const { workProfile } = data;
+
+  return (
+    <div>
+      <div className="d-card-container" ref={cardContainerRef}>
+        <div className="d-card1">
+          <h3 className="d-name">{workProfile.fullName}</h3>
+          <br />
+          <div className="d-property">{workProfile.jobTitle}</div>
+          <div className="d-info">
+            <p>
+              <span className="d-property">Email: </span>
+              {workProfile.businessEmail}
+            </p>
+            <p>
+              <span className="d-property">Company Name: </span>
+              {workProfile.companyName}
+            </p>
+            <p>
+              <span className="d-property">Address: </span>
+              {workProfile.address}
+            </p>
+            <p>
+              <span className="d-property">Phone Number: </span>
+              {workProfile.phoneNumber}
+            </p>
+            <div className="d-qr-code-container">
+              <div className="d-card3">
+                <canvas ref={qrContainerRef} id="d-qrcode" />
+              </div>
+
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div className="d-button-area d-card3">
+        <button className="d-button" onClick={downloadCard}>Download Card</button>
+      </div>
+      <div className="d-button-area d-card3">
+        <button className="d-button" onClick={downloadQRCode}>Download QR code</button>
+      </div>
+    </div>
+  );
+};
+
+export default Download;
+

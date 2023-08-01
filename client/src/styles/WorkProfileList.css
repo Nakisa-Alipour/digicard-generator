@@ -85,12 +85,12 @@
 
 .card-link {
   display: block;
-  padding: 15px;
+  padding: 5px;
   text-decoration: none;
   color: #aaa;
   font-weight: 800;
   text-transform: uppercase;
-  margin: 0 10px;
+  margin: 0;
 }
 
 .card-link,
@@ -100,6 +100,7 @@
 }
 .card-link:hover {
   color: #4d32e6;
+  font-weight: bolder;
 }
 
 .card-link {
@@ -110,7 +111,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 500;
   margin: auto;
   width: 0%;
   content: '.';
@@ -122,4 +123,5 @@
 .card-link:hover:after {
   width: 50%;
 }
+
 
