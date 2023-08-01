@@ -51,24 +51,19 @@ const Download = () => {
   };
 
   const downloadCard = () => {
-    // Get the card container element
+    
     const cardContainer = cardContainerRef.current;
 
-    // Create a temporary canvas element
     html2canvas(cardContainer).then((canvas) => {
-      // Convert the canvas to a data URL
+      
       const dataURL = canvas.toDataURL('image/png');
 
-      // Create a temporary link element
       const link = document.createElement('a');
       link.href = dataURL;
-      link.download = 'card.png'; // Set the desired file name here
-
-      // Append the link to the DOM and trigger the download
+      link.download = 'card.png'; 
+      
       document.body.appendChild(link);
       link.click();
-
-      // Clean up
       document.body.removeChild(link);
     });
   };
@@ -86,7 +81,8 @@ const Download = () => {
         <div className="d-card1">
           <h3 className="d-name">{workProfile.fullName}</h3>
           <br />
-          <div className="d-property">{workProfile.jobTitle}</div>
+          <h4 className="j-title">{workProfile.jobTitle}</h4>
+          <br/>
           <div className="d-info">
             <p>
               <span className="d-property">Email: </span>

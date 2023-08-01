@@ -77,8 +77,6 @@ const UpdateWork = () => {
     return <div>Loading...</div>;
   }
 
-  //const { workProfile } = data;
-
   return (
     <div>
       {isUpdateSuccessful ? (

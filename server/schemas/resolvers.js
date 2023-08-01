@@ -122,15 +122,6 @@ const resolvers = {
           throw new Error('Work profile not found');
         }
 
-        // Find the associated user profile and remove the workProfile reference
-        /*
-        const profile = await WorkProfile.findById(id);
-        console.log(profile);
-        profile.workProfile.pull(workProfile._id);
-        await profile.save();
-        console.log(profile);
-        // Delete the work profile
-        */
         await workProfile.deleteOne();
         console.log(workProfile);
         return workProfile;

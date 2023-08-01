@@ -31,13 +31,10 @@ p {
   }
   
 form {
-/* Increase the width of the form */
+
 width: 400px;
-max-width: 90%; /* Set a maximum width for responsiveness */
-
-/* Center the form within the flex container */
+max-width: 90%; 
 margin: 0 auto;
-
 display: grid;
 grid-gap: 10px;
 padding: 20px;

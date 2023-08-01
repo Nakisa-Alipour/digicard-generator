@@ -1,4 +1,4 @@
-/* Updated CSS */
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300');
 
 :root {
@@ -15,12 +15,10 @@ body {
 
 .d-card-container {
   perspective: 800px;
-  /* Styling */
   color: #fff;
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
   letter-spacing: 4px;
-  /* Center it */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -28,31 +26,25 @@ body {
 }
 
 .d-card1 {
-  /* Styling */
   width: 700px;
   height: 400px;
   background: #15CCC0;
   padding: var(--padding);
+  position: relative; /* Add position relative to the card container */
 }
 
 .d-name {
-  color: black;
+  color: #4d32e6;
   margin-bottom: 0;
   font-weight: bolder;
-  font-size: 28px;
-}
-
-p {
-  margin: 0.8em 0;
+  font-size: 32px;
 }
 
 .d-qr-code-container {
-    display: flex;
-    justify-content: flex-end; /* Equal space between items */
-    align-items: center; /* Vertically center the items */
+  position: absolute; /* Position the QR code container absolutely */
+  bottom: 20px; /* Adjust the distance from the bottom */
+  left: 500px; /* Adjust the distance from the right */
 }
-
-
 .d-card3 {
     display: flex;
     flex-direction: column;
@@ -83,23 +75,34 @@ p {
 
 .d-info {
     position: absolute;
-    bottom: var(--padding);
+    bottom: 100px;
     left: var(--padding);
     color: black;
+    
 }
 
 .d-property {
   color: #fff;
   font-weight: bold;
+  margin-right: 10px;
+  line-height: 30px;
+  letter-spacing: 0.2rem;
+}
+
+.j-title {
+  color: black;
+  font-weight: bolder;
+  margin-top: 0px;
+  letter-spacing: 0.2rem;
+  font-size: 20px;
 }
 
 #d-qrcode {
-  width: 150px; /* Adjust the width as needed */
-  height: 150px; /* Adjust the height as needed */
-  margin-left: 500px; /* Push the QR code to the right */
+  width: 150px; 
+  height: 150px; 
+  
 }
 
-/* Make semi-responsive */
 @media (max-width: 700px) {
   .card11 {
     transform: scale(0.5);

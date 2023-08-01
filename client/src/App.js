@@ -26,24 +26,6 @@ const httpLink = createHttpLink({
 });
 
 
-
-/*
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
-
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
-*/
-
 // Create a custom Apollo Link to add the token to the request headers
 const authLink = setContext((_, { headers }) => {
   const token = AuthService.getToken(); // Get the token from the AuthService
@@ -105,42 +87,3 @@ function App() {
 
 export default App;
 
-
-
-/*
-
-Routes, Route
-<div >
-            <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
-              />
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
-              />
-              <Route 
-                path="/me" 
-                element={<WorkProfile />} 
-              />
-              <Route 
-                path="/existing-profiles/:Id" 
-                element={<CardPreview />} 
-              />
-              <Route 
-                path="/WorkProfile/:Id/QR" 
-                element={<ScannedQR />} 
-              />
-            </Routes>
-          </div>
-          <Footer />
-
-  NOTE: npm install jwt-decode
-  NOTE: npm install qrcode
-  NOTE: npm install html2canvas
-*/
