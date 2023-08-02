@@ -79,6 +79,7 @@ body {
     left: var(--padding);
     color: black;
     font-weight: 18px;
+    letter-spacing: 0.1rem;
     
 }
 
@@ -87,7 +88,8 @@ body {
   font-weight: bold;
   margin-right: 10px;
   line-height: 30px;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
+  font-size: 16px;
 }
 
 .j-title {
