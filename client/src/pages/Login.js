@@ -78,7 +78,7 @@ const Login = (props) => {
                   style={{ cursor: 'pointer', fontWeight: 'bold', color: 'black', background: 'white'}}
                   type="submit"
                 >
-                  Submit
+                  Login
                 </button>
               </form>
             )}
