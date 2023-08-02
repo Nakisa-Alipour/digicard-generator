@@ -1,9 +1,9 @@
 # DIGICARD-GENERATOR
 
-Welcome to Digicard Generator, a powerful tool for creating and managing your digital business cards. This application allows you to effortlessly generate professional digital business cards and manage your work profiles, all in one place.
+Welcome to Digicard Generator, a powerful tool for creating and managing your digital business cards. This full stack application allows you to effortlessly generate professional digital business cards and manage your work profiles, all in one place.
 
 
-![Untitled video](https://github.com/Nakisa-Alipour/digicard-generator/assets/124220654/bdc6b9fb-c907-4bb9-92b4-eacfa84ee474)
+                                     ![Untitled video](https://github.com/Nakisa-Alipour/digicard-generator/assets/124220654/bdc6b9fb-c907-4bb9-92b4-eacfa84ee474)
 
 
 ## Table of Contents
@@ -127,36 +127,46 @@ Allow others to scan and save your contact information easily.
 
 - Home page:
   
+
   
 ![Homepage-screenshot](https://github.com/Nakisa-Alipour/digicard-generator/assets/124220654/e29ba49a-0607-4dd1-9273-887f227da2f0)
 
 
 
 - Login page:
+
   
 
 ![Login-Screenshot](https://github.com/Nakisa-Alipour/digicard-generator/assets/124220654/df1c06a0-8d30-419a-9ddd-974f423c34e0)
 
 
+
 - Signup page:
   
 
+
 ![signup-Screenshot](https://github.com/Nakisa-Alipour/digicard-generator/assets/124220654/dbb7b875-375e-4200-b626-6ceded3c51c5)
+
 
 
 - Work profile page:
 
 
+
 ![WorkProfile-Screenshot](https://github.com/Nakisa-Alipour/digicard-generator/assets/124220654/f86c434f-59f1-4700-9352-91b66b2dbf05)
+
 
 
 - Update work profile page:
 
 
+
 ![UpdateWorkProfile-Screenshot](https://github.com/Nakisa-Alipour/digicard-generator/assets/124220654/6a0feb9a-708a-46a3-996f-3fb1a33a1429)
 
 
+
 - Preview and downlaod card page:
+
 
 
 ![DownloadCard-Screenshot](https://github.com/Nakisa-Alipour/digicard-generator/assets/124220654/a1ffc17c-0f4f-4c63-8541-251f5305dd84)
