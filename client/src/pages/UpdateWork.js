@@ -114,7 +114,7 @@ const UpdateWork = () => {
               <label htmlFor="phoneNumber">Phone Number</label>
               <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange} />
             </div>
-            <button type="submit">Update Work Profile</button>
+            <button className="update-button" type="submit">Update Work Profile</button>
           </form>
           {queryError && <div>Error fetching work profile data.</div>}
           {updateError && <div>Error updating work profile.</div>}

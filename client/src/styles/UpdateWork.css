@@ -13,6 +13,25 @@ body {
   overflow-x: hidden;
 }
 
+.update-form {
+ margin-top: 50px;
+}
+
+.update-button {
+  padding-right: 30px;
+  background-color: #4d32e6;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.update-button:hover {
+  background-color: #61dafb;
+  font-weight: bolder;
+}
 .container {
   perspective: 800px;
   color: #fff;
@@ -34,14 +53,6 @@ body {
   transition: 0.6s;
 }
 
-.side {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
- 
-  transform: rotate(0deg) translateZ(1px);
-}
 
 
 .container:hover .card,
@@ -50,65 +61,6 @@ body {
 }
 
 
-.front {
-  
-  line-height: calc(400px - 40px); 
-  text-align: center;
-}
-
-.back {
-  background: #15CCC0;
-  padding: var(--padding);
-}
-
-.name {
-  color: #3B3B3B;
-  margin-bottom: 0;
-  font-weight: bold;
-}
-
-
-
-.info {
-  position: absolute;
-  bottom: var(--padding);
-  left: var(--padding);
-  color: #3b3b3b;
-}
-
-.property {
-  color: #fff;
-}
-
-#qrcode {
-  width: 150px; 
-  height: 150px; 
-  margin-right: 50px; 
-}
-
-.middle-container {
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  height: 10vh; 
-}
-
-.back-link {
-  outline: 1px solid #19F6E8;
-  color:#19F6E8;
-  display: inline-block;
-  padding: 15px 40px;
-  text-transform: uppercase;
-  font-family: 'Roboto', sans-serif;
-  text-decoration: none;
-  font-weight: normal;
-  line-height: 32px;
-  letter-spacing: 8px;
-}
-
-.back-link:hover {
-  background-color: #4d32e6;
-}
 
 .update-success-message{
   display: flex;
