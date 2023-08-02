@@ -1,11 +1,11 @@
-
 import React, { useEffect, useRef } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_WORK_PROFILE } from '../utils/queries';
 import { useParams } from 'react-router-dom';
 import '../styles/CardPreview.css';
 import QRCode from 'qrcode';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 const CardPreview = () => {
   const { workProfileId } = useParams();
@@ -20,27 +20,38 @@ const CardPreview = () => {
 
   useEffect(() => {
     if (data && data.workProfile) {
-      generateQRCode(data.workProfile._id);
+      generateQRCode(data.workProfile);
     }
   }, [data]);
 
-  const generateQRCode = (text) => {
-    QRCode.toCanvas(qrContainerRef.current, text, function (error) {
+  const generateQRCode = (workProfile) => {
+    // Generate vCard content
+    const vCardContent = `BEGIN:VCARD
+VERSION:3.0
+FN:${workProfile.fullName}
+ORG:${workProfile.companyName}
+TITLE:${workProfile.jobTitle}
+EMAIL:${workProfile.businessEmail}
+TEL:${workProfile.phoneNumber}
+ADR:${workProfile.address}
+END:VCARD`;
+
+    // Generate QR code from vCard content
+    QRCode.toCanvas(qrContainerRef.current, vCardContent, function (error) {
       if (error) console.error(error);
       console.log('QR code generated!');
     });
   };
 
-
   const downloadQRCode = () => {
     const qrCanvas = qrContainerRef.current;
-  
+
     const dataURL = qrCanvas.toDataURL('image/png');
-  
+
     const link = document.createElement('a');
     link.href = dataURL;
-    link.download = 'qr_code.png'; 
-  
+    link.download = 'qr_code.png';
+
     document.body.appendChild(link);
     link.click();
 
@@ -66,7 +77,6 @@ const CardPreview = () => {
             <h3 className="name">{workProfile.fullName}</h3>
             <br/>
             <h4 className="j-title">{workProfile.jobTitle}</h4>
-            <br/>
             <div className="info">
               <p>
                 <span className="property">Email: </span>{workProfile.businessEmail}
@@ -82,13 +92,12 @@ const CardPreview = () => {
               </p>
               <div className="qr-container">
                 <div className="d-card3">
-                <canvas ref={qrContainerRef} id="qrcode" />
+                  <canvas ref={qrContainerRef} id="qrcode" />
                 </div>
-                <button onClick={downloadQRCode}>Download QR code</button>
+                <button className="download-icon" onClick={downloadQRCode}>
+                  <FontAwesomeIcon icon={faDownload} />
+                </button>
               </div>
-
-              
-              
             </div>
           </div>
         </div>
@@ -98,5 +107,3 @@ const CardPreview = () => {
 };
 
 export default CardPreview;
-
-

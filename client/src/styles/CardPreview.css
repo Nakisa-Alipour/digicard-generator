@@ -38,8 +38,8 @@ body {
 
 .qr-container {
   position: absolute; /* Position the QR code container absolutely */
-  bottom: 20px; /* Adjust the distance from the bottom */
-  left: 500px; /* Adjust the distance from the right */
+  bottom: 10px; /* Adjust the distance from the bottom */
+  left: 400px; /* Adjust the distance from the right */
 }
 
 .side {
@@ -143,6 +143,18 @@ p {
   justify-content: center;
 }
 
+.download-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #4d32e6;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.download-icon:hover {
+  color: #6a50e3;
+}
 
 @media (max-width: 700px) {
   .card {
