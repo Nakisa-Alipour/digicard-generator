@@ -192,8 +192,10 @@ Contributions are welcome! If you would like to contribute to this project, plea
 [🔼back to table of contents ](#table-of-contents)
 
 
-## Link to deployed application:
-https://nakisa-alipour.github.io/digicard-generator/ 
+## Link to the application:
+- Github repo: https://nakisa-alipour.github.io/digicard-generator/
+
+  
 
 [🔼back to table of contents ](#table-of-contents)
 
