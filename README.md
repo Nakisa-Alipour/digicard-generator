@@ -2,7 +2,7 @@
 
 Welcome to Digicard Generator, a powerful tool for creating and managing your digital business cards. This application allows you to effortlessly generate professional digital business cards and manage your work profiles, all in one place.
 
-![Untitled video](https://github.com/Nakisa-Alipour/digicard-generator/assets/124220654/bdc6b9fb-c907-4bb9-92b4-eacfa84ee474)
+                                              ![Untitled video](https://github.com/Nakisa-Alipour/digicard-generator/assets/124220654/bdc6b9fb-c907-4bb9-92b4-eacfa84ee474)
 
 
 ## Table of Contents
@@ -11,7 +11,8 @@ Welcome to Digicard Generator, a powerful tool for creating and managing your di
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Screenshots of the application](#Screenshots-of-the-application)
+- [Technical Features](#technical-features)
+- [Screenshots of the application](#screenshots-of-the-application)
 - [Contributing](#contributing)
 - [Link to deployed application](#Link-to-deployed-application) 
 
@@ -104,6 +105,19 @@ Download the business card and associated QR code.
 - QR Code Integration:
 Generate a QR code containing your work information.
 Allow others to scan and save your contact information easily.
+
+[🔼back to table of contents ](#table-of-contents)
+
+
+## Technical Features
+
+ * Application uses React for the front end.
+
+  * Application has a GraphQL API with a Node.js and Express.js server, and uses queries and mutations for retrieving, adding, updating, and deleting data.
+
+  * Application uses MongoDB and the Mongoose ODM for the database and protects sensitive API key information on the server.
+
+  * Application includes user authentication using JWT.
 
 [🔼back to table of contents ](#table-of-contents)
 
