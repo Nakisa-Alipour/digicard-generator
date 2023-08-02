@@ -193,7 +193,8 @@ Contributions are welcome! If you would like to contribute to this project, plea
 
 
 ## Link to the application:
-- Github repo: https://nakisa-alipour.github.io/digicard-generator/
+- Github repository: https://github.com/Nakisa-Alipour/digicard-generator
+- https://nakisa-alipour.github.io/digicard-generator/
 
   
 
