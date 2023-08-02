@@ -19,12 +19,24 @@ const Download = () => {
 
   useEffect(() => {
     if (data && data.workProfile) {
-      generateQRCode(data.workProfile._id);
+      generateQRCode(data.workProfile);
     }
   }, [data]);
 
-  const generateQRCode = (text) => {
-    QRCode.toCanvas(qrContainerRef.current, text, function (error) {
+  const generateQRCode = (workProfile) => {
+    // Generate vCard content
+    const vCardContent = `BEGIN:VCARD
+VERSION:3.0
+FN:${workProfile.fullName}
+ORG:${workProfile.companyName}
+TITLE:${workProfile.jobTitle}
+EMAIL:${workProfile.businessEmail}
+TEL:${workProfile.phoneNumber}
+ADR:${workProfile.address}
+END:VCARD`;
+
+    // Generate QR code from vCard content
+    QRCode.toCanvas(qrContainerRef.current, vCardContent, function (error) {
       if (error) console.error(error);
       console.log('QR code generated!');
     });
@@ -51,17 +63,15 @@ const Download = () => {
   };
 
   const downloadCard = () => {
-    
     const cardContainer = cardContainerRef.current;
 
     html2canvas(cardContainer).then((canvas) => {
-      
       const dataURL = canvas.toDataURL('image/png');
 
       const link = document.createElement('a');
       link.href = dataURL;
-      link.download = 'card.png'; 
-      
+      link.download = 'card.png';
+
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -104,9 +114,7 @@ const Download = () => {
               <div className="d-card3">
                 <canvas ref={qrContainerRef} id="d-qrcode" />
               </div>
-
             </div>
-            
           </div>
         </div>
       </div>
@@ -121,4 +129,3 @@ const Download = () => {
 };
 
 export default Download;
-

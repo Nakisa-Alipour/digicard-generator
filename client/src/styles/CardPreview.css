@@ -33,6 +33,13 @@ body {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   transform-style: preserve-3d;
   transition: 0.6s;
+  position: relative;
+}
+
+.qr-container {
+  position: absolute; /* Position the QR code container absolutely */
+  bottom: 20px; /* Adjust the distance from the bottom */
+  left: 500px; /* Adjust the distance from the right */
 }
 
 .side {
@@ -54,9 +61,10 @@ body {
 }
 
 .name {
-  color: #3B3B3B;
+  color: #4d32e6;
   margin-bottom: 0;
-  font-weight: bold;
+  font-weight: bolder;
+  font-size: 32px;
 }
 
 p {
@@ -65,19 +73,37 @@ p {
 
 .info {
   position: absolute;
-  bottom: var(--padding);
-  left: var(--padding);
-  color: #3b3b3b;
+    bottom: 100px;
+    left: var(--padding);
+    color: black; 
+}
+
+.d-card3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .property {
   color: #fff;
+  font-weight: bold;
+  margin-right: 10px;
+  line-height: 30px;
+  letter-spacing: 0.2rem;
+}
+
+.j-title {
+  color: black;
+  font-weight: bolder;
+  margin-top: 0px;
+  letter-spacing: 0.2rem;
+  font-size: 20px;
 }
 
 #qrcode {
   width: 150px;
   height: 150px; 
-  margin-right: 50px; 
 
 }
 

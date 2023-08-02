@@ -65,7 +65,8 @@ const CardPreview = () => {
           <div className="back side" ref={backSideRef}>
             <h3 className="name">{workProfile.fullName}</h3>
             <br/>
-            <div>{workProfile.jobTitle}</div>
+            <h4 className="j-title">{workProfile.jobTitle}</h4>
+            <br/>
             <div className="info">
               <p>
                 <span className="property">Email: </span>{workProfile.businessEmail}
@@ -80,10 +81,13 @@ const CardPreview = () => {
                 <span className="property">Phone Number: </span>{workProfile.phoneNumber}
               </p>
               <div className="qr-container">
+                <div className="d-card3">
                 <canvas ref={qrContainerRef} id="qrcode" />
+                </div>
+                <button onClick={downloadQRCode}>Download QR code</button>
               </div>
 
-              <button onClick={downloadQRCode}>Download QR code</button>
+              
               
             </div>
           </div>
