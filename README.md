@@ -2,7 +2,8 @@
 
 Welcome to Digicard Generator, a powerful tool for creating and managing your digital business cards. This application allows you to effortlessly generate professional digital business cards and manage your work profiles, all in one place.
 
-                                              ![Untitled video](https://github.com/Nakisa-Alipour/digicard-generator/assets/124220654/bdc6b9fb-c907-4bb9-92b4-eacfa84ee474)
+
+![Untitled video](https://github.com/Nakisa-Alipour/digicard-generator/assets/124220654/bdc6b9fb-c907-4bb9-92b4-eacfa84ee474)
 
 
 ## Table of Contents
