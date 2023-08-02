@@ -74,10 +74,10 @@ END:VCARD`;
           </div>
 
           <div className="back side" ref={backSideRef}>
-            <h3 className="name">{workProfile.fullName}</h3>
+            <h3 className="name2">{workProfile.fullName}</h3>
             <br/>
             <h4 className="j-title">{workProfile.jobTitle}</h4>
-            <div className="info">
+            <div className="info2">
               <p>
                 <span className="property">Email: </span>{workProfile.businessEmail}
               </p>

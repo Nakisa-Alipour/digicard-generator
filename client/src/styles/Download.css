@@ -42,7 +42,7 @@ body {
 
 .d-qr-code-container {
   position: absolute; /* Position the QR code container absolutely */
-  bottom: 1px; /* Adjust the distance from the bottom */
+  top: -50px; /* Adjust the distance from the bottom */
   left: 400px; /* Adjust the distance from the right */
 }
 .d-card3 {

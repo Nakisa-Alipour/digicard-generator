@@ -38,7 +38,7 @@ body {
 
 .qr-container {
   position: absolute; /* Position the QR code container absolutely */
-  bottom: 10px; /* Adjust the distance from the bottom */
+  top: -70px; /* Adjust the distance from the bottom */
   left: 400px; /* Adjust the distance from the right */
 }
 
@@ -60,22 +60,20 @@ body {
   padding: var(--padding);
 }
 
-.name {
+.name2 {
   color: #4d32e6;
   margin-bottom: 0;
   font-weight: bolder;
-  font-size: 32px;
+  font-size: 36px;
 }
 
-p {
-  margin: 0.8em 0;
-}
 
-.info {
+.info2 {
   position: absolute;
     bottom: 100px;
     left: var(--padding);
     color: black; 
+    letter-spacing: 0.1rem;
 }
 
 .d-card3 {
@@ -90,7 +88,7 @@ p {
   font-weight: bold;
   margin-right: 10px;
   line-height: 30px;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
 }
 
 .j-title {
@@ -150,6 +148,8 @@ p {
   color: #4d32e6;
   font-size: 24px;
   transition: color 0.3s;
+  margin-left: 200px;
+  margin-top: 10px;
 }
 
 .download-icon:hover {
