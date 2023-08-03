@@ -1,21 +1,24 @@
 import React from 'react';
 import '../styles/Home.css';
 
+// URL of the React logo image
 const logoSrc =
   'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png';
 
-
-
+// Define the Home component
 const Home = () => {
-
   return (
     <div className="App">
+      {/* Header section */}
       <header className="App-header">
+        {/* Display the React logo */}
         <img src={logoSrc} className="App-logo" alt="logo" />
-        <br/>
+        <br />
+        {/* Display a welcome message */}
         <p>
-         <code>Welcome to Digicard-Generator</code>!
+          <code>Welcome to Digicard-Generator</code>!
         </p>
+        {/* Link to React documentation */}
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -28,4 +31,6 @@ const Home = () => {
     </div>
   );
 };
+
+// Export the Home component
 export default Home;

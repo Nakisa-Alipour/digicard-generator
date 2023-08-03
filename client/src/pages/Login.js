@@ -5,11 +5,15 @@ import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
+// Define the Login component
 const Login = (props) => {
+  // State to manage form input values
   const [formState, setFormState] = useState({ email: '', password: '' });
+  
+  // Use Apollo Client to execute mutation
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  // update state based on form input changes
+  // Handle form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -19,27 +23,30 @@ const Login = (props) => {
     });
   };
 
-  // submit form
+  // Handle form submission
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+
     try {
+      // Call the login mutation with form data
       const { data } = await login({
         variables: { ...formState },
       });
 
+      // Log in the user and store the token
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
 
-    // clear form values
+    // Clear form values after submission
     setFormState({
       email: '',
       password: '',
     });
   };
 
+  // Render login form and messages
   return (
     <main className= "page">
       <div className="form">
@@ -47,11 +54,13 @@ const Login = (props) => {
           <h2>Login</h2>
           <div>
             {data ? (
+              // Display success message and link on successful login
               <p>
                 Success! You may now head{' '}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
+              // Display login form
               <form onSubmit={handleFormSubmit}>
                 <h4 style={{ fontSize: '24px', fontWeight: 'bold', color: '#555', marginBottom: '10px' }}> Welcome back! </h4>
                 <label htmlFor="email">Email:</label>
@@ -84,6 +93,7 @@ const Login = (props) => {
             )}
 
             {error && (
+              // Display error message if there is an error
               <div>
                 {error.message}
               </div>
@@ -95,4 +105,5 @@ const Login = (props) => {
   );
 };
 
+// Export the Login component
 export default Login;

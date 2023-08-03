@@ -14,6 +14,7 @@ const Download = () => {
     }
   });
 
+  // Refs to hold DOM elements
   const qrContainerRef = useRef(null);
   const cardContainerRef = useRef(null);
 
@@ -63,17 +64,23 @@ END:VCARD`;
   };
 
   const downloadCard = () => {
+    // Get the card container element
     const cardContainer = cardContainerRef.current;
 
+    // Convert the card container to a canvas
     html2canvas(cardContainer).then((canvas) => {
       const dataURL = canvas.toDataURL('image/png');
 
+      // Create a temporary link element
       const link = document.createElement('a');
       link.href = dataURL;
       link.download = 'card.png';
 
+      // Append the link to the DOM and trigger the download
       document.body.appendChild(link);
       link.click();
+
+      // Clean up
       document.body.removeChild(link);
     });
   };
@@ -82,7 +89,7 @@ END:VCARD`;
     return <div>Loading...</div>;
   }
 
-  console.log(data);
+  // Access the workProfile data
   const { workProfile } = data;
 
   return (

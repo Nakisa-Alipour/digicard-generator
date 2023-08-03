@@ -1,3 +1,4 @@
+// Import necessary libraries and components
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
@@ -5,7 +6,9 @@ import { ADD_PROFILE } from '../utils/mutations';
 import Auth from '../utils/auth';
 import '../styles/Signup.css';
 
+// Define the Signup component
 const Signup = () => {
+  // Set up state to manage form data and mutation result
   const [formState, setFormState] = useState({
     username: '',
     email: '',
@@ -13,7 +16,7 @@ const Signup = () => {
   });
   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
 
-  // update state based on form input changes
+  // Handle input change in the form
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
@@ -22,22 +25,24 @@ const Signup = () => {
     });
   };
 
-  // submit form
+  // Handle form submission
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
 
     try {
+      // Call the `addProfile` mutation with the form data
       const { data } = await addProfile({
         variables: { ...formState },
       });
 
+      // Log in the user with the obtained token
       Auth.login(data.addProfile.token);
     } catch (e) {
       console.error(e);
     }
   };
 
+  // Render content based on mutation result and loading status
   return (
     <main className= "page">
       <div className="form"> 
@@ -97,7 +102,7 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Signup;  
 
 
 

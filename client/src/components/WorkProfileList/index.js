@@ -6,10 +6,12 @@ import { Link } from 'react-router-dom';
 import '../../styles/WorkProfileList.css'; 
 
 const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
-  
+  // Define a mutation to delete a work profile
   const [deleteWorkProfile, { error }] = useMutation(DELETE_WORK_PROFILE, {
+    // Update the cache after deleting a work profile
     update(cache, { data: { deleteWorkProfile } }) {
       try {
+        // Update the QUERY_ME cache with the deleted work profile data
         cache.writeQuery({
           query: QUERY_ME,
           data: { me: deleteWorkProfile },
@@ -20,6 +22,7 @@ const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
     },
   });
 
+  // Function to handle deleting a work profile
   const handleDeleteWorkProfile = async (id) => {
     try {
       const { data } = await deleteWorkProfile({
@@ -30,7 +33,7 @@ const WorkProfileList = ({ workProfile, isLoggedInUser = false }) => {
     }
   };
 
-  
+  // If there are no work profiles, display a message
   if (!workProfile.length) {
     return <h3>No Work Profile Yet</h3>;
   }

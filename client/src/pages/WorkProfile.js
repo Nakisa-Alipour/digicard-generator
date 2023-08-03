@@ -1,20 +1,19 @@
+// Import necessary libraries and components
 import React from 'react';
-
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
 import WorkProfileList from '../components/WorkProfileList';
 import WorkProfileForm from '../components/WorkProfileForm';
-
 import { QUERY_PROFILE, QUERY_ME } from '../utils/queries';
-
 import Auth from '../utils/auth';
-import '../styles/WorkProfile.css'
+import '../styles/WorkProfile.css';
 
+// Define the Profile component
 const Profile = () => {
+  // Get the `profileId` from URL parameters using `useParams()`
   const { profileId } = useParams();
 
-  // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
+  // Execute the appropriate query based on the presence of `profileId`
   const { loading, data } = useQuery(
     profileId ? QUERY_PROFILE : QUERY_ME,
     {
@@ -22,21 +21,23 @@ const Profile = () => {
     }
   );
 
-  // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
+  // Extract the profile data from the query result
   const profile = data?.me || data?.profile || {};
 
-  // Convert the workProfile object to an array
+  // Convert the `workProfile` object to an array
   const workProfileArray = Object.values(profile.workProfile || {});
 
-  // Use React Router's `<Navigate />` component to redirect to personal profile page if username is yours
+  // Use React Router's `<Navigate />` component to redirect if username is the logged-in user's
   if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
     return <Navigate to="/me" />;
   }
 
+  // Handle loading state
   if (loading) {
     return <div>Loading...</div>;
   }
 
+  // If the user is not logged in or no profile is found, show appropriate message
   if (!profile?.username) {
     return (
       <h4>
@@ -46,10 +47,11 @@ const Profile = () => {
     );
   }
 
+  // Render the profile content
   return (
     <main style={{ background: 'linear-gradient(to bottom, #081947, #074257, #cce7eb)' }}>
-      <h2 style={{paddingTop: "10px",color: 'white'}}>Welcome to your work profile!</h2>
-      <br/>
+      <h2 style={{ paddingTop: "10px", color: 'white' }}>Welcome to your work profile!</h2>
+      <br />
       {workProfileArray.length > 0 ? (
         <WorkProfileList
           workProfile={workProfileArray}
@@ -58,14 +60,15 @@ const Profile = () => {
       ) : (
         <p>No work profiles found.</p>
       )}
-      
+
       <div className='work-form'>
-      <h2 style={{margin: "0 auto", color: 'white'}}> Create new work profile</h2>
-      <br/>
+        <h2 style={{ margin: "0 auto", color: 'white' }}>Create new work profile</h2>
+        <br />
         <WorkProfileForm profileId={profile._id} />
       </div>
     </main>
   );
 };
 
+// Export the Profile component
 export default Profile;

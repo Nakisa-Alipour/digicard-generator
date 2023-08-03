@@ -8,13 +8,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 const CardPreview = () => {
+  // Get the workProfileId from URL parameters
   const { workProfileId } = useParams();
+  
+  // Fetch work profile data
   const { loading, data } = useQuery(QUERY_WORK_PROFILE, {
     variables: {
       id: workProfileId
     }
   });
 
+  // Refs to hold DOM elements
   const qrContainerRef = useRef(null);
   const backSideRef = useRef(null);
 
@@ -44,17 +48,22 @@ END:VCARD`;
   };
 
   const downloadQRCode = () => {
+    // Get the QR code canvas element
     const qrCanvas = qrContainerRef.current;
 
+    // Convert the QR code canvas to a data URL
     const dataURL = qrCanvas.toDataURL('image/png');
 
+    // Create a temporary link element
     const link = document.createElement('a');
     link.href = dataURL;
     link.download = 'qr_code.png';
 
+    // Append the link to the DOM and trigger the download
     document.body.appendChild(link);
     link.click();
 
+    // Clean up
     document.body.removeChild(link);
   };
 
@@ -62,7 +71,7 @@ END:VCARD`;
     return <div>Loading...</div>;
   }
 
-  console.log(data);
+  // Access the workProfile data
   const { workProfile } = data;
 
   return (

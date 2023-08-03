@@ -1,3 +1,4 @@
+// Import necessary libraries and components
 import React, { useEffect, useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_WORK_PROFILE } from '../utils/queries';
@@ -5,17 +6,22 @@ import { UPDATE_WORK_PROFILE } from '../utils/mutations';
 import { useParams } from 'react-router-dom';
 import '../styles/UpdateWork.css';
 
+// Define the UpdateWork component
 const UpdateWork = () => {
+  // Get the `workProfileId` from URL parameters using `useParams()`
   const { workProfileId } = useParams();
 
+  // Execute the `QUERY_WORK_PROFILE` query to fetch the work profile data
   const { loading, data, error: queryError } = useQuery(QUERY_WORK_PROFILE, {
     variables: {
       id: workProfileId,
     },
   });
 
+  // Use the `UPDATE_WORK_PROFILE` mutation to update the work profile
   const [updateWorkProfile, { error: updateError }] = useMutation(UPDATE_WORK_PROFILE);
 
+  // Set up state to manage form data and update success status
   const [formData, setFormData] = useState({
     fullName: '',
     businessEmail: '',
@@ -24,14 +30,13 @@ const UpdateWork = () => {
     address: '',
     phoneNumber: '',
   });
-
   const [isUpdateSuccessful, setIsUpdateSuccessful] = useState(false);
 
+  // Set initial form data using fetched work profile data
   useEffect(() => {
     if (data && data.workProfile) {
       const { fullName, businessEmail, jobTitle, companyName, address, phoneNumber } = data.workProfile;
 
-      // Set the default form data using the existing work profile data
       setFormData({
         fullName,
         businessEmail,
@@ -43,6 +48,7 @@ const UpdateWork = () => {
     }
   }, [data]);
 
+  // Handle input change in the form
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -51,19 +57,20 @@ const UpdateWork = () => {
     });
   };
 
+  // Handle form submission to update the work profile
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
+      // Call the `updateWorkProfile` mutation with the updated data
       const { data } = await updateWorkProfile({
         variables: { 
           updateWorkProfileId: workProfileId, 
           ...formData 
         },
       });
-    
-      console.log('Updated work profile added:', data.updateWorkProfile);
-    
+
+      console.log('Updated work profile:', data.updateWorkProfile);
 
       setIsUpdateSuccessful(true);
     } catch (err) {
@@ -73,6 +80,7 @@ const UpdateWork = () => {
     }
   };
 
+  // Render content based on loading and update status
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -124,4 +132,10 @@ const UpdateWork = () => {
   );
 };
 
+// Export the UpdateWork component
 export default UpdateWork;
+
+/*
+
+
+*/

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-
 import { ADD_WORK_PROFILE } from '../../utils/mutations';
 import '../../styles/WorkProfileForm.css'; // Import the CSS file
-
 import Auth from '../../utils/auth';
 
+// Component for adding a new work profile
 const AddWorkProfileForm = ({ profileId }) => {
+  // State to manage form data
   const [formData, setFormData] = useState({
     fullName: '',
     businessEmail: '',
@@ -17,8 +17,10 @@ const AddWorkProfileForm = ({ profileId }) => {
     phoneNumber: '',
   });
 
+  // Define a mutation to add a new work profile
   const [addWorkProfile, { error }] = useMutation(ADD_WORK_PROFILE);
 
+  // Function to handle form submission
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -29,7 +31,7 @@ const AddWorkProfileForm = ({ profileId }) => {
 
       console.log('New work profile added:', data.addWorkProfile);
 
-      
+      // Clear the form data
       setFormData({
         fullName: '',
         businessEmail: '',
@@ -39,13 +41,14 @@ const AddWorkProfileForm = ({ profileId }) => {
         phoneNumber: '',
       });
 
-      
-      window.location.href = `./cardpreview/${data.addWorkProfile._id}`; 
+      // Redirect to the card preview page of the newly added work profile
+      window.location.href = `./cardpreview/${data.addWorkProfile._id}`;
     } catch (err) {
       console.error(err);
     }
   };
 
+  // Function to handle input changes
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({

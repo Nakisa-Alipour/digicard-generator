@@ -1,3 +1,4 @@
+// Import necessary libraries and components
 import React from 'react';
 import {
   ApolloClient,
@@ -19,12 +20,12 @@ import WorkProfile from './pages/WorkProfile';
 import CardPreview from './pages/CardPreview';
 import UpdateWork from './pages/UpdateWork';
 import Download from './pages/Download';
-//import './index.css'; // Import global styles if needed
 
+
+// Create an HTTP link to your GraphQL server
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: '/graphql', // Replace with your GraphQL server URI
 });
-
 
 // Create a custom Apollo Link to add the token to the request headers
 const authLink = setContext((_, { headers }) => {
@@ -37,53 +38,36 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+// Create an Apollo Client instance
 const client = new ApolloClient({
   link: ApolloLink.from([authLink, httpLink]), // Use the custom Apollo Link with authLink and httpLink
   cache: new InMemoryCache(),
 });
 
+// Define the main App component
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-          <Header />
-          <Routes>
-          <Route 
-                path="/" 
-                element={<Home />} 
-            />
-          <Route 
-                path="/login" 
-                element={<Login />} 
-              />
-          <Route 
-                path="/signup" 
-                element={<Signup />} 
-              />
-          <Route 
-                path="/me" 
-                element={<WorkProfile />} 
-              />
-          <Route 
-                path="/cardpreview/:workProfileId" 
-                element={<CardPreview />} 
-              />
-          <Route 
-                path="/download/:workProfileId" 
-                element={<Download />} 
-              />
-          <Route 
-                path="/updatework/:workProfileId" 
-                element={<UpdateWork />} 
-              />
-          </Routes>
-          
-          <Footer />
-        
+        {/* Render the Header component */}
+        <Header />
+
+        {/* Define routes using react-router-dom */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/me" element={<WorkProfile />} />
+          <Route path="/cardpreview/:workProfileId" element={<CardPreview />} />
+          <Route path="/download/:workProfileId" element={<Download />} />
+          <Route path="/updatework/:workProfileId" element={<UpdateWork />} />
+        </Routes>
+
+        {/* Render the Footer component */}
+        <Footer />
       </Router>
     </ApolloProvider>
   );
 }
 
 export default App;
-
